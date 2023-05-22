@@ -14,6 +14,7 @@ const findMenu = async (req, res) => {
 };
 
 const createMenu = async (req, res) => {
+  console.log("entro a create");
   const newMenu = new Menu(req.body);
 
   try {

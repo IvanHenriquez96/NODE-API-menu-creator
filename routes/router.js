@@ -14,7 +14,7 @@ router.delete("/api/:id", TareasController.deleteTarea);
 
 router.get("/menu/:id_user", MenuController.readMenus);
 router.get("/menu/:id_user/:id", MenuController.findMenu);
-router.post("/menu/id_user", MenuController.createMenu);
+router.post("/menu/:id_user", MenuController.createMenu);
 router.patch("/menu/:id_user/:id", MenuController.updateMenu);
 router.delete("/menu/:id_user/:id", MenuController.deleteMenu);
 
