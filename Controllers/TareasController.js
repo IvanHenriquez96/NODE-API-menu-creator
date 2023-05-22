@@ -45,7 +45,6 @@ const deleteTarea = async (req, res) => {
 };
 
 module.exports = {
-  inicio,
   readTareas,
   findTarea,
   createTarea,

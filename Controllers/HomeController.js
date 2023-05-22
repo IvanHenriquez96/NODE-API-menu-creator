@@ -14,3 +14,7 @@ const inicio = async (req, res) => {
     ],
   });
 };
+
+module.exports = {
+  inicio,
+};
