@@ -4,17 +4,20 @@ const User = require("../Models/User");
 
 const register = async (req, res) => {
   try {
-    const { user, password } = req.body;
+    console.log(req.body);
+    const { username, email, password } = req.body;
     const hashedPasswd = await bcrypt.hash(password, 10);
 
     const newUser = new User({
-      user,
+      username,
+      email,
       password: hashedPasswd,
     });
 
     await newUser.save();
     res.status(200).json({ message: "Usuario registrado exitosamente" });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Error al registrar el usuario" });
   }
 };
