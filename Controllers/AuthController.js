@@ -24,9 +24,9 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { user, password } = req.body;
+    const { email, password } = req.body;
 
-    const usuario = await User.findOne({ user });
+    const usuario = await User.findOne({ email });
 
     if (!usuario) {
       throw new Error("Usuario no encontrado");
@@ -40,7 +40,7 @@ const login = async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, process.env.APP_KEY);
 
-    res.status(200).json({ token });
+    res.status(200).json({ msg: "usuario logueado correctamente ", token });
   } catch (error) {
     res.status(401).json({ error: error.message });
   }
