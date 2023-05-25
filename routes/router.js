@@ -3,7 +3,7 @@ const HomeController = require("../Controllers/HomeController");
 const MenuController = require("../Controllers/MenuController");
 const TareasController = require("../Controllers/TareasController");
 const AuthController = require("../Controllers/AuthController");
-const authMiddleware = require("../Middlewares/AuthMiddleware");
+const authMiddleware = require("../Middlewares/authMiddleware");
 
 router.get("/", HomeController.inicio);
 
