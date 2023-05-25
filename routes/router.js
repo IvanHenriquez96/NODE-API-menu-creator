@@ -3,8 +3,11 @@ const HomeController = require("../Controllers/HomeController");
 const MenuController = require("../Controllers/MenuController");
 const TareasController = require("../Controllers/TareasController");
 const AuthController = require("../Controllers/AuthController");
+const authMiddleware = require("../Middlewares/AuthMiddleware");
 
 router.get("/", HomeController.inicio);
+
+router.get("/ruta_protegida", authMiddleware, HomeController.inicio);
 
 router.get("/api/", TareasController.readTareas);
 router.get("/api/:id", TareasController.findTarea);

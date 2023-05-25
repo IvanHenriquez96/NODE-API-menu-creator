@@ -27,6 +27,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     const usuario = await User.findOne({ email });
+    console.log(usuario);
 
     if (!usuario) {
       throw new Error("Usuario no encontrado");
@@ -38,7 +39,7 @@ const login = async (req, res) => {
       throw new Error("Contraseña incorrecta");
     }
 
-    const token = jwt.sign({ userId: user._id }, process.env.APP_KEY);
+    const token = jwt.sign({ userId: usuario._id }, process.env.APP_KEY);
 
     res.status(200).json({ msg: "usuario logueado correctamente ", token });
   } catch (error) {
